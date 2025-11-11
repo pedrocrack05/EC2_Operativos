@@ -1,0 +1,13 @@
+[Unit]
+Description=FastAPI EC2 Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/ec2-fastapi-s3
+EnvironmentFile=/home/ubuntu/ec2-fastapi-s3/.env
+ExecStart=/home/ubuntu/ec2-fastapi-s3/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
