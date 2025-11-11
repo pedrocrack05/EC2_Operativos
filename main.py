@@ -22,7 +22,7 @@ s3_client = boto3.client(
 
 app = FastAPI()
 
-
+# Endpoint to insert data into S3
 @app.post("/insert")
 async def insert(request: Request):
     
